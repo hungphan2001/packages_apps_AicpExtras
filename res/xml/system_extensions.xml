@@ -34,5 +34,13 @@
         android:summary="@string/app_circle_bar_summary"
         android:defaultValue="false"
         android:fragment="com.aicp.extras.fragments.AppCircleBar" />
-
+        <!-- Advanced Controls -->
+    	<Preference
+        	android:key="advanced_controls"
+        	android:persistent="false"
+        	android:title="@string/advanced_controls_title">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.thht.settings.device"
+            android:targetClass="com.thht.settings.device.DeviceSettings"/>
+    	</Preference> 
 </PreferenceScreen>
