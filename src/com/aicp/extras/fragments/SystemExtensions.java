@@ -27,6 +27,8 @@ import com.aicp.extras.utils.Util;
 public class SystemExtensions extends BaseSettingsFragment {
 
     private static final String PREF_SYSTEM_APP_REMOVER = "system_app_remover";
+private static final String KEY_DEVICE_PART = "advanced_controls";
+    private static final String KEY_DEVICE_PART_PACKAGE_NAME = "com.thht.settings.device";
 
     @Override
     protected int getPreferenceResource() {
@@ -36,7 +38,10 @@ public class SystemExtensions extends BaseSettingsFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+// Advanced Controls
+        if (!com.aicp.extras.utils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
+            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_PART));
+        }
         Preference systemAppRemover = findPreference(PREF_SYSTEM_APP_REMOVER);
         Util.requireRoot(getActivity(), systemAppRemover);
     }
