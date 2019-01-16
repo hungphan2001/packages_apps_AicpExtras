@@ -39,7 +39,7 @@ private static final String KEY_DEVICE_PART = "advanced_controls";
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 // Advanced Controls
-        if (!com.aicp.extras.utils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
+        if (!com.aicp.extras.utils.Util.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_PART));
         }
         Preference systemAppRemover = findPreference(PREF_SYSTEM_APP_REMOVER);
